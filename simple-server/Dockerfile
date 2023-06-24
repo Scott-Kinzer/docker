@@ -1,10 +1,12 @@
 # Base image
 FROM node:19.5.0-alpine
 
-# Install deps
 WORKDIR /usr/app
-COPY ./src ./
+
+# Install deps
+COPY ./src/package.json ./
 RUN npm install
+COPY ./src ./
 
 # Default commands
 CMD [ "npm", "start" ]
